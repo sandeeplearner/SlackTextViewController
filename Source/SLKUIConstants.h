@@ -45,6 +45,9 @@ __unused static CGFloat SLKPointSizeDifferenceForCategory(NSString *category)
 
 __unused static CGRect SLKKeyWindowBounds()
 {
+#ifdef TARGET_EXTENSION
+    return CGRectZero;
+#endif
     return [[UIApplication sharedApplication] keyWindow].bounds;
 }
 
