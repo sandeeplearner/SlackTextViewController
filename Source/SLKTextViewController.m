@@ -458,9 +458,9 @@ CGFloat const SLKAutoCompletionViewDefaultHeight = 140.0;
         }
         
         NSString *contentSizeCategory = @"";
-#ifdef TARGET_EXTENSION
-        topBarsHeight += 0
-#elseif
+#if TARGET_EXTENSION
+        topBarsHeight += 0;
+#else
         topBarsHeight += CGRectGetHeight([UIApplication sharedApplication].statusBarFrame);
 #endif
         return topBarsHeight;

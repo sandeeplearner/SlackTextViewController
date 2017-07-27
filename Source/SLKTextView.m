@@ -204,10 +204,9 @@ static NSString *const SLKTextViewGenericFormattingSelectorPrefix = @"slk_format
         
         if (self.isDynamicTypeEnabled) {
             NSString *contentSizeCategory = @"";
-#ifdef TARGET_EXTENSION
-            contentSizeCategory = UIContentSizeCategoryMedium
-#elseif
-            
+#if TARGET_EXTENSION
+            contentSizeCategory = UIContentSizeCategoryMedium;
+#else
             contentSizeCategory = [[UIApplication sharedApplication] preferredContentSizeCategory];
 #endif
             
@@ -512,9 +511,9 @@ static NSString *const SLKTextViewGenericFormattingSelectorPrefix = @"slk_format
 - (void)setFont:(UIFont *)font
     {
         NSString *contentSizeCategory = @"";
-#ifdef TARGET_EXTENSION
-        contentSizeCategory = UIContentSizeCategoryMedium
-#elseif
+#if TARGET_EXTENSION
+        contentSizeCategory = UIContentSizeCategoryMedium;
+#else
         contentSizeCategory = [[UIApplication sharedApplication] preferredContentSizeCategory];
 #endif
         
@@ -547,8 +546,8 @@ static NSString *const SLKTextViewGenericFormattingSelectorPrefix = @"slk_format
         
         NSString *contentSizeCategory = @"";
 #ifdef TARGET_EXTENSION
-        contentSizeCategory = UIContentSizeCategoryMedium
-#elseif
+        contentSizeCategory = UIContentSizeCategoryMedium;
+#else
         contentSizeCategory = [[UIApplication sharedApplication] preferredContentSizeCategory];
 #endif
         
